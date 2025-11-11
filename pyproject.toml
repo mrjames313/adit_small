@@ -1,0 +1,24 @@
+
+[project]
+name = "adit-small"
+version = "0.1.0"
+description = "Minimal ADiT-style VAE + Latent Diffusion (QM9)"
+authors = [{name = "Me and ChatGPT"}]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "torch>=2.2.0",
+    "torchvision>=0.17.0",
+    "torchaudio>=2.2.0",
+    "einops>=0.7.0",
+    "numpy>=1.26.0",
+    "tqdm>=4.66.0",
+    "packaging>=24.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["adit_small*"]
+
+[tool.setuptools]
+package-dir = {"" = "src"}

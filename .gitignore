@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Environments
+adit-env/
+venv/
+.env/
+
+# Jupyter + Colab
+.ipynb_checkpoints/
+
+# Editor cruft
+.vscode/
+.idea/
+
+# PyTorch / model files
+*.pt
+*.pth
+*.ckpt
+
+# Data
+data/
+datasets/
+
+# Packaging artifacts
+*.egg-info/
+*.egg
