@@ -84,7 +84,7 @@ def get_qm9_dataloaders(root:str, batch_size:int=64, num_workers:int=2, augment:
 
         # 🔍 Debug: show dataset choice + size
         print("Using dataset: Toy synthetic")
-        print("Dataset length:", len(ds_w))
+        print("Dataset length:", len(ds))
 
         n_train = int(0.9*len(ds))
         train, val = random_split(ds, [n_train, len(ds)-n_train])
