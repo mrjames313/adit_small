@@ -68,8 +68,11 @@ def pad_batch(batch, pad_value=-1):
 def get_qm9_dataloaders(root:str, batch_size:int=64, num_workers:int=2, augment:bool=True)->Tuple[DataLoader,DataLoader]:
     if HAS_PYG:
         ds = QM9(root)
-
         ds_w = QM9Wrapper(ds)
+        # 🔍 Debug: show dataset choice + size
+        print("Using dataset: QM9")
+        print("Dataset length:", len(ds_w))
+
         n = len(ds_w)
         n_train = int(0.95*n)
         train, val = random_split(ds_w, [n_train, n-n_train])
@@ -78,6 +81,11 @@ def get_qm9_dataloaders(root:str, batch_size:int=64, num_workers:int=2, augment:
         return dl_train, dl_val
     else:
         ds = ToyMoleculeSet(n=800)
+
+        # 🔍 Debug: show dataset choice + size
+        print("Using dataset: Toy synthetic")
+        print("Dataset length:", len(ds_w))
+
         n_train = int(0.9*len(ds))
         train, val = random_split(ds, [n_train, len(ds)-n_train])
         dl_train = DataLoader(train, batch_size=batch_size, shuffle=True, num_workers=num_workers, collate_fn=pad_batch)
